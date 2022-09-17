@@ -14,6 +14,13 @@ public class GetTextvsGetAttributeValue {
         driver.get("https://demo.nopcommerce.com/login");
         WebElement emailInputBox = driver.findElement(By.id("Email"));
         emailInputBox.sendKeys("adm123@gmail.com");
+        emailInputBox.clear();
+        emailInputBox.sendKeys("adm123@gmail.com");
+
+        System.out.println(emailInputBox.getAttribute("value"));
+        System.out.println(emailInputBox.getAttribute("val"));//returns null
+        System.out.println(emailInputBox.getText());//gets innertext
+
 
     }
 
