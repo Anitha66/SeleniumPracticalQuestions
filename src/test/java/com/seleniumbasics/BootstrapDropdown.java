@@ -14,17 +14,32 @@ public class BootstrapDropdown {
         WebDriver driver = WebDriverManager.chromedriver().create();
         driver.manage().window().maximize();
 
-        driver.get("https://www.hdfcbank.com/");
+        driver.get("https://getbootstrap.com/docs/4.0/components/dropdowns/");
 
-        driver.findElement(By.xpath("//span[text()='Select Product Type']")).click();
-        List<WebElement> productTypes = driver.findElements(By.xpath("//ul[@class='dropdown1 dropdown-menu']/li"));
-        System.out.println(productTypes.size());
-        for(WebElement product:productTypes){
-            if(product.getText().equals("Accounts")){
-                product.click();
+        driver.findElement(By.xpath("//button[@id='dropdownMenuButton']")).click();
+        List<WebElement> drpdwnValues = driver.findElements(By.xpath("//div[@class='dropdown-menu show']//a"));
+        System.out.println(drpdwnValues.size());
+        for(WebElement value:drpdwnValues){
+            if(value.getText().equals("Action")){
+                value.click();
+                break;
             }
         }
 
+        driver.findElement(By.xpath("//a[@id='dropdownMenuLink']")).click();
+        List<WebElement> values = driver.findElements(By.xpath("//div[@class='dropdown-menu show']//a[@class='dropdown-item'][normalize-space()='Action']"));
+        selectOptionsFromDropdown(values,"Action");
+
+
+    }
+
+    public static void selectOptionsFromDropdown(List<WebElement> elementList, String value){
+        for(WebElement ele:elementList){
+            if(ele.getText().equals(value)){
+                ele.click();
+                break;
+            }
+        }
 
     }
 
