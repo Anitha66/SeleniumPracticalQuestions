@@ -14,22 +14,21 @@ public class AutoSuggestDropdown {
 
         WebDriver driver = WebDriverManager.chromedriver().create();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        driver.get("https://www.google.com/");
-        driver.findElement(By.xpath("//input[@title='Search']")).sendKeys("Selenium");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get("https://www.bing.com/");
+        driver.findElement(By.xpath("(//input[@type='search'])[1]")).sendKeys("selenium");
 
-        List<WebElement> autosuggestionList = driver.findElements(By.xpath("//li[@class='sbct']//div[@role='option']"));
-        System.out.println("123");
+        List<WebElement> autosuggestionList = driver.findElements(By.xpath("//ul[@class='sa_drw']//li[@role='option']"));
         System.out.println(autosuggestionList.size());
 
 
         for (WebElement listitem :autosuggestionList){
-            System.out.println(listitem.getText());
-            /*if (listitem.getText().equalsIgnoreCase("selenium")){
+            String match = listitem.getAttribute("query");
+            if (match.equalsIgnoreCase("Selenium")){
                 listitem.click();
-                System.out.println("hii");
+                System.out.println("suggestion found");
                 break;
-            }*/
+            }
         }
 
     }
