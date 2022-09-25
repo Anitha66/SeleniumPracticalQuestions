@@ -7,8 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
-import java.util.List;
-public class AutoCompleteGooglePlacesDropdown {
+
+public class AutoCompleteDropdown {
     public static void main(String []args) throws InterruptedException {
         WebDriver driver = WebDriverManager.chromedriver().create();
         driver.manage().window().maximize();
