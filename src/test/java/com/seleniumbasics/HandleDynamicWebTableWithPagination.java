@@ -17,6 +17,7 @@ public class HandleDynamicWebTableWithPagination {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://datatables.net/");
 
+
         //Find total number of entries
         String text = driver.findElement(By.xpath("//div[@id='example_info']")).getText();
         System.out.println(text);
