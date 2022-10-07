@@ -26,12 +26,9 @@ public class BootstrapDropdown {
             }
         }
 
-
         driver.findElement(By.xpath("//a[@id='dropdownMenuLink']")).click();
         List<WebElement> values = driver.findElements(By.xpath("//div[@class='dropdown-menu show']//a[@class='dropdown-item'][normalize-space()='Action']"));
         selectOptionsFromDropdown(values,"Action");
-
-
     }
 
     public static void selectOptionsFromDropdown(List<WebElement> elementList, String value){
