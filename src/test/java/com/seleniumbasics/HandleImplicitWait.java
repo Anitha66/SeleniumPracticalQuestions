@@ -23,11 +23,6 @@ public class HandleImplicitWait {
         driver.findElement(By.xpath("//h3[normalize-space()='Selenium']")).click();
 
 
-
-
-
-
-
     }
 
 

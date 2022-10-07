@@ -8,7 +8,6 @@ public class HandleInnerFrames2 {
 
         WebDriver driver = WebDriverManager.chromedriver().create();
         driver.manage().window().maximize();
-
         driver.get("https://demo.automationtesting.in/Frames.html");
     }
 
